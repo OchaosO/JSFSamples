@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jsf="http://xmlns.jsp.org/jsf"> 
+
+<h:head></h:head> 
+<body> 
+
+	<h2>Passthrough Element</h2>
+	<!-- Passthrough Elemente erlauben es unbekannte HTML-Tags serverseitig zu verarbeiten wenn mindestens ein Attribut oder das Element selbst im Namensraum 
+	http://xmlns.jcp.org/jsf liegt 
+	Beispiel: HTML 5 Eingabeelement für die es keine JSF Repräsentation gibt (z.B.: Eingabefeld vom Typ Date) werden 
+	durch den namespace jsf:value trotzdem durch das serverseite JSF Framework verarbeitbar und entsprechend in den Komponentenbaum 
+	eingehangen -->
+	<input type="date" placeholder="01.01.1970" jsf:value="" />
+
+</body> 
+</html>

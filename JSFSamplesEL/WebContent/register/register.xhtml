@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jsp.org/jsf/passthrough"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:composition template="/template.xhtml">
+	
+	<ui:define name="header">Registrierungs Asistent</ui:define>
+	
+	<ui:define name="content">
+	
+	<h:form>
+				
+		<div> 
+			<h3>Daten eingeben:</h3>
+			
+			<!-- Nur nicht behandelte Fehler anzeigen 
+			errorStyle eher nicht produktiv verwenden sonden man sollte hier eine eigene css Klassse per errorClass referenzieren -->
+			<h:messages globalOnly="true" errorStyle="color:red" />
+						
+				<div>
+					<!-- Validieren per Beans Validation und Message Ausgabe-->
+					<h:outputLabel value="Benutzernamen angeben:  " for="loginName"/>
+					<h:inputText id="loginName" value="#{registerBean.loginName}" 
+							p:placeholder="Anmeldename" />
+					<h:message for="loginName" errorStyle="color:red" showDetail="true"/>
+							
+				</div>
+				<br></br>
+				<div>
+					<h:outputLabel value="Kennwort eingeben:  " for="password"/>
+					<h:inputSecret id="password" value="#{registerBean.password}" 
+						required="true"
+						requiredMessage="Bitte geben Sie ein Kennwort an!">
+						<!-- Validieren per deklarativer Angabe eines Validators und Message Ausgabe-->
+						<f:validateLength maximum="10" minimum="3"></f:validateLength>
+					</h:inputSecret>
+					<h:message for="password" errorStyle="color:red" showDetail="true"/>
+					
+				</div>
+				<br></br>
+				<div>
+					<h:outputLabel value="Geschlecht auswählen:  " for="gender" />
+					<h:selectOneMenu id="gender" value="#{registerBean.gender}">
+						<f:selectItems value="#{newUserController.genders}"></f:selectItems>
+						<f:converter converterId="GenderConverter"></f:converter>
+					</h:selectOneMenu>
+		
+				</div>
+				<br /> &#160; <br />
+				<div>						
+					<h:commandButton id="next" action="register-step2" value="Weiter"></h:commandButton>
+				</div>
+				
+						
+		</div>
+	
+	</h:form>
+	
+	</ui:define>
+	
+	<ui:define name="footer"></ui:define>
+	
+	</ui:composition>
+	
+	
+</html>

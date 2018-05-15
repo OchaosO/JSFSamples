@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jsp.org/jsf/passthrough"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:composition template="/template.xhtml">
+	
+<ui:define name="header">Registrierungs Asistent - Step 2</ui:define>
+	
+	<ui:define name="content">
+	
+	<h:form>
+				
+		<div> 
+			<h3>AGB bestätigen:</h3>
+			
+			<div style="font-style: italic;">
+				Lorem ipsum dolor sit amet, ......
+			</div>
+			
+			<!-- Nur nicht behandelte Fehler anzeigen 
+			errorStyle eher nicht produktiv verwenden sonden man sollte hier eine eigene css Klassse per errorClass referenzieren -->
+			<h:messages globalOnly="true" errorStyle="color:red" />
+					
+					
+				<div>
+					asdasdasdasdasdasdsad
+				</div>
+				<br></br>
+				<div>
+					<h:outputLabel for="agbChecked" value="AGB akzeptieren" />
+					<h:selectBooleanCheckbox id="agbChecked" value="#{registerBean.acceptedTerms}"/> 
+					<h:message for="agbChecked" errorStyle="color:red" showDetail="true"/>
+					
+				</div>
+				<br></br>
+				<br /> &#160; <br />
+				<div>
+					<h:commandButton id="back" action="register" value="Zurück"></h:commandButton>						
+					<h:commandButton id="next" action="register-step3" value="Weiter"></h:commandButton>
+				</div>
+				
+						
+		</div>
+	
+	</h:form>
+	
+	</ui:define>
+	
+	<ui:define name="footer"></ui:define>
+	
+	</ui:composition>
+	
+	
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h:outputStylesheet library="grau" name="style.css"></h:outputStylesheet>
+	<h:outputScript library="scripts" name="hello.js"></h:outputScript>
+</h:head> 
+<body> 
+
+	<div id="wrapper">
+		<div id="top">
+			<div>
+				<ui:insert name="header">Header</ui:insert>
+			</div>
+		</div>
+	
+		<div id="center">
+			<div>
+				<ui:insert name="content">Content</ui:insert>
+			</div>
+		</div>
+		
+		<div id="bottom">
+			<div>
+				<ui:insert name="footer">
+				#{newUserController.time}
+					<h:form>
+						<h:commandButton action="RegisterUser" value="Benutzer anlegen" /> | 
+						<!-- Impliziter Navigation per EL und Bean Rückgabe -->
+						<h:commandButton action="#{navigationBean.showUsers()}" value="Benutzer anzeigen" /> | 
+						<h:commandButton action="register" value="Benutzer registrieren (Assistent)" />  
+					</h:form>
+				</ui:insert>
+			</div>
+		</div>
+	</div>
+</body> 
+</html>

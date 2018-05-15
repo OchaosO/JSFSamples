@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/template.xhtml">
+	
+	<ui:define name="header">Daten mit EL - User Liste</ui:define>
+	
+	<ui:define name="content">
+		
+		<h4>Existierende User - Listing </h4>
+		<ui:repeat var="user" value="#{newUserController.users}">
+			#{user.loginName}, 
+			<h:outputText value="#{user.gender}" converter="LocalizationGenderConverter"/>
+			<br />
+		</ui:repeat>
+		<br /> &#160; <br />
+		
+		<h4>Existierende User - HTML Listing</h4>
+		<h:dataTable var="usersHtml" value="#{newUserController.users}">
+			<h:column>
+				<f:facet name="header">Benutzername</f:facet>
+				<div style="padding:10px">#{usersHtml.loginName}</div>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Geschlecht</f:facet>
+				<div style="padding:10px">
+					<h:outputText value="#{usersHtml.gender}" converter="LocalizationGenderConverter"/>
+				</div>
+			</h:column>
+		</h:dataTable>
+		<br /> &#160; <br />
+		
+		<!-- Zurück zur übersicht -->
+		<h:form>
+			<h:commandButton action="RegisterUser" value="Zurück zur übersicht" />
+		</h:form>
+		
+	</ui:define>
+	
+	</ui:composition>
+</html>

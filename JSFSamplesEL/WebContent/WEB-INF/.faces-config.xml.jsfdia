@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="failure::#KeinUser.xhtml" NAME="output"
+    PATH="/KeinUser.xhtml" TARGET="rules:#KeinUser.xhtml"
+    TITLE="failure" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#KeinUser.xhtml" PATH="/KeinUser.xhtml"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#KeinUser.xhtml:0" NAME="item"
+   PATH="/KeinUser.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="failure::#RegisterUser.xhtml" NAME="output"
+    PATH="/RegisterUser.xhtml" TARGET="rules:#RegisterUser.xhtml"
+    TITLE="failure" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#RegisterUser.xhtml"
+  PATH="/RegisterUser.xhtml" SHAPE="448,17,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

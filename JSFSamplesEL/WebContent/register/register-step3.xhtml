@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jsp.org/jsf/passthrough"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:composition template="/template.xhtml">
+	
+	<ui:define name="header">Registrierungs Assistent - Step 3</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+				
+		<div> 
+			<h3>Registrierung abschließen</h3>
+
+				<h:outputLabel for="name" value="Eingegebener Name: " />
+				<h:outputText id="name" value="#{registerBean.loginName}" />
+				<br /> &#160; <br />				
+				<h:outputLabel for="password" value="Eingegebenes Passwort: " />
+				<h:outputText id="password" value="#{registerBean.password}" />
+				<br /> &#160; <br />
+				<h:outputLabel for="gender" value="Geschlecht: " />
+				<h:outputText id="gender" value="#{registerBean.gender}"  converter="LocalizationGenderConverter"/>
+				<br /> &#160; <br />
+				<br /> &#160; <br />
+				<br /> &#160; <br />
+				<div>
+					<h:commandButton id="back" action="register-step2" value="Zurück"></h:commandButton>						
+					<h:commandButton id="finish" action="done" value="Speichern"></h:commandButton>
+				</div>
+				
+						
+		</div>
+	
+	</h:form>
+
+	</ui:define>
+	
+	<ui:define name="footer"></ui:define>
+	
+	</ui:composition>
+	
+	
+</html>
